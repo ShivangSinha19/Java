@@ -5,21 +5,19 @@ class Solution {
         int n = nums.size();
         if (n == 0) return 0;
 
-        int count = 1; // To count the number of increasing subarrays
-        int length = 1; // To track the length of the current increasing subarray
+        int count = 1; 
+        int length = 1; 
 
         for (int i = 1; i < n; i++) {
             if (nums.get(i) > nums.get(i - 1)) {
                 length++;
             } else {
                 if (length > 1) {
-                    count += (length * (length - 1)) / 2; // Add the number of subarrays from the current increasing sequence
+                    count += (length * (length - 1)) / 2; 
                 }
-                length = 1; // Reset length for the new sequence
+                length = 1; 
             }
         }
-
-        // If the last sequence was increasing, add its subarrays
         if (length > 1) {
             count += (length * (length - 1)) / 2;
         }
